@@ -1,0 +1,33 @@
+diff a/Assets/Scripts/Data/TemplateSaveData.cs b/Assets/Scripts/Data/TemplateSaveData.cs	(rejected hunks)
+@@ -2,22 +2,26 @@
+ {
+     /// <summary>
+     /// セーブデータの入れ物として使うプロパティクラス
+-    /// </summary>
++    /// </summary>7
+     public class TemplateSaveData
+     {
++        // Jsonに書き出すためにシリアライズ化する
++        //private string saveDataName;
++        [UnityEngine.SerializeField]
+         private string saveDataName;
+ 
+-        /// <summary>
+-        /// (Get only) セーブデータの名前
+-        /// </summary>
++        ///// <summary >
++        ///// (Get only) セーブデータの名前
++        ///// </summary>
+         public string SaveDataName
+         {
+             get
+             {
+-                return saveDataName;              
++                return saveDataName;
+             }
+         }
+ 
++
+         /// <summary>
+         /// コンストラクタ
+         /// </summary>

@@ -23,6 +23,7 @@ namespace Utility
             string json = JsonUtility.ToJson(instance);
             File.WriteAllText(saveDataAtFilePathConst, json);
 
+            Debug.Log(saveDataAtFilePathConst + "にデータを保存しました");
         }
 
         /// <summary>
@@ -32,19 +33,23 @@ namespace Utility
         /// <returns></returns>
         public static T Load<T>()
         {
+            // 空データ
+            string json = JsonUtility.ToJson(new Data.TemplateSaveData(""));
+
             // ファイルが存在しているかチェック(存在しない = false)
             if (File.Exists(saveDataAtFilePathConst) == false)
             {
-                // ファイルがないのでファイル作成
-                File.Create(saveDataAtFilePathConst);
+                Debug.Log("ファイルが存在していません！");
 
-                // 空を返す
-                return default;
+                // ファイルが存在していないので、空データを返す
+                return JsonUtility.FromJson<T>(json);
             }
             else
             {
-                // 中身が入っていたら表示する
-                string json = File.ReadAllText(saveDataAtFilePathConst);
+                // 中身が入っていたらデータを取得
+                json = File.ReadAllText(saveDataAtFilePathConst);
+
+                // Jsonからstringに変換して返す
                 return JsonUtility.FromJson<T>(json);
             }
         }
