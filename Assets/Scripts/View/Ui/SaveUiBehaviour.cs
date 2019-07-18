@@ -12,7 +12,6 @@ namespace View.Ui
         // セーブボタン
         [SerializeField] private Button saveButton;
 
-        
         private void Awake()
         {
             // セーブボタンが押された時の処理
