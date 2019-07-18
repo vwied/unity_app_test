@@ -2,21 +2,25 @@ namespace Data
 {
     /// <summary>
     /// セーブデータの入れ物として使うプロパティクラス
-    /// </summary>
+    /// </summary>7
     public class TemplateSaveData
     {
+        // Jsonに書き出すためにシリアライズ化する
+        //private string saveDataName;
+        [UnityEngine.SerializeField]
         private string saveDataName;
 
-        /// <summary>
-        /// (Get only) セーブデータの名前
-        /// </summary>
+        ///// <summary >
+        ///// (Get only) セーブデータの名前
+        ///// </summary>
         public string SaveDataName
         {
             get
             {
-                return saveDataName;              
+                return saveDataName;
             }
         }
+
 
         /// <summary>
         /// コンストラクタ
