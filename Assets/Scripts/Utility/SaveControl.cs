@@ -23,7 +23,9 @@ namespace Utility
             string json = JsonUtility.ToJson(instance);
             File.WriteAllText(saveDataAtFilePathConst, json);
 
+#if UNITY_EDITOR
             Debug.Log(saveDataAtFilePathConst + "にデータを保存しました");
+#endif
         }
 
         /// <summary>
@@ -39,10 +41,12 @@ namespace Utility
             // ファイルが存在しているかチェック(存在しない = false)
             if (File.Exists(saveDataAtFilePathConst) == false)
             {
+#if UNITY_EDITOR
                 Debug.Log("ファイルが存在していません！");
+#endif
 
                 // ファイルが存在していないので、空データを返す
-                return JsonUtility.FromJson<T>(json);
+                return JsonUtility.FromJson<T>(null);
             }
             else
             {

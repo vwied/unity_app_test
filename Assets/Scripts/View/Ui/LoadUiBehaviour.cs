@@ -12,7 +12,11 @@ namespace View.Ui
 
         private void Start()
         {
-            inputField.text = SaveControl.Load<TemplateSaveData>().SaveDataName;
+            // 中身が空だったら代入しない
+            if (SaveControl.Load<TemplateSaveData>().SaveDataName != null)
+            {
+                inputField.text = SaveControl.Load<TemplateSaveData>().SaveDataName;
+            }
         }
     }
 }
