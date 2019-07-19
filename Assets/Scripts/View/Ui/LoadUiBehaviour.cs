@@ -9,10 +9,13 @@ namespace View.Ui
     {
         // セーブデータの名前を入力するためのインプットフィールド
         [SerializeField] private InputField inputField;
-        
+
         private void Start()
         {
-            inputField.text = SaveControl.Load<TemplateSaveData>().SaveDataName;
+            if (!string.IsNullOrEmpty(SaveControl.Load<TemplateSaveData>().SaveDataName))
+            {
+                inputField.text = SaveControl.Load<TemplateSaveData>().SaveDataName;
+            }
         }
     }
 }

@@ -3,8 +3,11 @@ namespace Data
     /// <summary>
     /// セーブデータの入れ物として使うプロパティクラス
     /// </summary>
+    [System.Serializable]
     public class TemplateSaveData
     {
+        // シリアライズ化
+        [UnityEngine.SerializeField]
         private string saveDataName;
 
         /// <summary>
